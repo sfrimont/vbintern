@@ -1,0 +1,94 @@
+<!--
+  Generated template for the AnwesenheitPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+      <ion-title>Probenteilnahme</ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="dismiss()" end>
+        zurück
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h4>Sopran 1</h4>
+  <p>
+    <span *ngFor="let voice of sopran">
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: green;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+  </p>
+  <h4>Sopran 2</h4>
+  <p>
+
+    <span *ngFor="let voice of sopran2">
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: green;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+
+  </p>
+  <h4>Alt 1</h4>
+  <p>
+    <span *ngFor="let voice of alt">
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: green;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+  </p>
+  <h4>Alt 2</h4>
+  <p>
+    <span *ngFor="let voice of alt2">
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: green;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+  </p>
+
+  <h4>Tenor</h4>
+  <p>
+    <span *ngFor="let voice of tenor">
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: green;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+  </p>
+
+  <h4>Bariton</h4>
+  <p>
+
+    <span *ngFor="let voice of bariton">
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: green;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+
+  </p>
+  <h4>Bass</h4>
+  <p>
+    <span *ngFor="let voice of bass">
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: green;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+  </p>
+
+</ion-content>

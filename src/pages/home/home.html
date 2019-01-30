@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+
+    <ion-buttons start *ngIf="never">
+      <button ion-button (click)="playMusic()" color="secondary">Play</button>
+      <button ion-button (click)="stopMusic()" color="secondary">Stop</button>
+      <button ion-button *ngIf="depth" (click)="goBack()"><ion-icon name="arrow-back"></ion-icon> Back</button>
+    </ion-buttons>
+
+
+    <ion-range min="0" max="{{duration}}" [(ngModel)]="position" *ngIf="never"> <!--  [disabled]="is_in_play && is_playing"  -->
+      <ion-label range-left>{{ position*1000 | date:'mm:ss' }}</ion-label>
+      <ion-label range-right *ngIf="duration == -1" >--:--</ion-label>
+      <ion-label range-right *ngIf="duration != -1">{{ duration*1000 | date:'mm:ss' }}</ion-label>
+    </ion-range>
+
+    <audio *ngIf="mp3Link!=''" controls style="width: 100%">
+      <source [src]="mp3Link" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content *ngIf="stimmgruppe=='Probemitglied'">
+      Du bist in der BonnVoice-App als Probemitglied registriert und kannst aus Sicherheitsgründen keine Noten (PDF-Dateien) hier ansehen und herunterladen.
+      Bitte wende Dich bei fehlenden Noten an Tono :)
+    </ion-card-content>
+
+  </ion-card>
+  <!--<button ion-button *ngIf="depth" (click)="goBack()"><ion-icon name="arrow-back"></ion-icon>Reportoire</button>-->
+  <ion-list>
+    <div *ngFor="let folder of folders">
+      <ion-item *ngIf="folder['.tag'] == 'folder'" detail-push (click)="openFolder(folder.path_lower)">
+        {{folder.name}}
+      </ion-item>
+      <ion-item *ngIf="folder['.tag'] == 'file'" >
+        {{folder.name}}
+          <ion-icon *ngIf="(platform.is('ios') || platform.is('android')) && fileIsViewable(folder.name) && downloadAllowed(folder.name)" item-right name="eye" (click)="openFile(folder.path_lower)"></ion-icon>
+          <ion-icon *ngIf="platform.is('ios') && downloadAllowed(folder.name)" item-right name="open-outline" (click)="runterladen(folder.path_lower,folder.name,folder.type)"></ion-icon>
+          <div *ngIf="!platform.is('ios') && !platform.is('android') && fileIsViewable(folder.name) && downloadAllowed(folder.name)" item-right (click)="openFile(folder.path_lower)"><img src="assets/imgs/viewIcon.svg" width="20px" height="20pxs"></div>
+          <div *ngIf="!platform.is('ios') && !platform.is('android') && downloadAllowed(folder.name)" item-right><a [href]="downloadLink(folder.path_lower)"><img src="assets/imgs/downloadIcon.svg" width="20px" height="20pxs"></a></div>
+      </ion-item>
+    </div>
+  </ion-list>
+
+    <!-- <button ion-button (click)="downloadMusicFromDropbox()" color="secondary">Download Music from Dropbox</button> -->
+   <!--
+    <p>{{meldung}}</p>
+    <button ion-button (click)="playMusic()" color="secondary">Play</button>
+    <button ion-button (click)="stopMusic()" color="secondary">Stop</button>
+   -->
+
+
+  <pdf-viewer [src]="pdfLink"
+              [render-text]="true"
+              [fit-to-page]="true"
+              (after-load-complete)="LoadingDialog.dismiss()"
+              style="display: block; width:100%">
+  </pdf-viewer>
+
+    <!--
+    <ion-card>
+        <ion-card-header>
+            Ionic 3 File Transfer Example
+        </ion-card-header>
+        <ion-card-content>
+            <img src="assets/imgs/pug.jpg" alt="Cute Pug">
+            <button ion-button (click)="downloadImage('pug.jpg')" color="secondary">Download image</button>
+            <button ion-button (click)="downloadMusicFromDropbox()" color="secondary">Download Music from Dropbox</button>
+            <p>{{meldung}}</p>
+            <button ion-button (click)="retrieveImage('pug.jpg')" color="secondary">Retrieve downloaded image</button>
+            <button ion-button (click)="retrieveMusic()" color="secondary">Retrieve downloaded music</button>
+        </ion-card-content>
+    </ion-card>
+    -->
+
+</ion-content>

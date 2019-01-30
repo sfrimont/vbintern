@@ -1,0 +1,223 @@
+
+<ion-header>
+
+  <ion-navbar>
+  	<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+	  <ion-title>Termine</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+	<ion-refresher (ionRefresh)="doRefresh($event)">
+		<ion-refresher-content
+				pullingIcon="arrow-dropdown"
+				pullingText="Zum Aktualisieren weiter ziehen"
+				refreshingSpinner="circles"
+				refreshingText="aktualisiere Kalender...">
+		</ion-refresher-content>
+	</ion-refresher>
+	<!--
+	<ion-card>
+		<ion-card-content>
+			<ul>
+				<li>Die Proben sind auf einer eigenen Seite aufgelistet</li>
+				<li>Auf der Seite "Rückblick" findest Du vergangene Probentermine</li>
+			</ul>
+		</ion-card-content>
+	</ion-card>
+	-->
+
+
+	<ion-row no-padding>
+		<ion-col>
+			<button ion-button full outline small *ngIf="auswahl!='keineAuswahl'" (click)="changeAuswahl('keineAuswahl')">neu ({{anzahlNichtsAusgewaehlt()}})</button>
+			<button ion-button full small *ngIf="auswahl=='keineAuswahl'" >neu ({{anzahlNichtsAusgewaehlt()}})</button>
+		</ion-col>
+
+		<ion-col>
+			<button ion-button full small outline *ngIf="auswahl!='unsicher'" (click)="changeAuswahl('unsicher')">unsicher ({{anzahlUnsicherAusgewaehlt()}})</button>
+			<button ion-button full small *ngIf="auswahl=='unsicher'" >unsicher ({{anzahlUnsicherAusgewaehlt()}})</button>
+		</ion-col>
+
+		<ion-col>
+			<button  ion-button full outline small *ngIf="auswahl!='alleTermine'" (click)="changeAuswahl('alleTermine')">alle</button>
+			<button  ion-button full small *ngIf="auswahl=='alleTermine'" >alle</button>
+		</ion-col>
+
+
+	</ion-row>
+
+	<ion-card>
+
+		<ion-card-content *ngIf="anzahlNichtsAusgewaehlt()==0 && auswahl=='keineAuswahl'">
+			Du hast für alle Termine eine Auswahl getroffen, vielen Dank!
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card *ngIf="anzahlUnsicherAusgewaehlt()==0 && auswahl=='unsicher'">
+		<ion-card-content>
+			Du hast für alle Termine eine eindeutige Auswahl getroffen!
+		</ion-card-content>
+	</ion-card>
+
+<div *ngIf="dataReady"> 
+
+   
+	<ion-list>
+
+		<ion-card *ngFor="let termin of calenderData.items | terminfilter text-wrap" >
+          <div *ngIf="terminAnzeigen(termin.id)">
+			<div (click)="stimmen(termin.id, termin.summary, anwesend,namen,sopran,sopran2,alt,alt2,tenor,bariton,bass,probemitglied)">
+			<ion-card-header>
+				<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span>
+				<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span>
+				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='ja'" style="color:green"> - anwesend!</span>
+				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='nein'" style="color:red"> - abwesend!</span>
+				<span *ngIf="anwesend[termin.id] && anwesend[termin.id][user]=='unsicher'" style="color:#e0ac00"> - unsicher!</span>
+				<h2 text-wrap>{{ termin.summary }}</h2>
+			</ion-card-header>
+			<ion-card-content >
+				<!-- <p>{{ termin.description }}</p> -->
+
+				<table *ngIf="!terminNichtAuswgewaehlt()">
+					<tr>
+						<td>
+							Sopran &nbsp;
+						</td>
+						<td>
+							<span *ngFor="let voice of sopran">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+							|
+							<span *ngFor="let voice of sopran2">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Alt &nbsp;
+						</td>
+						<td>
+							<span *ngFor="let voice of alt">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+							|
+							<span *ngFor="let voice of alt2">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Tenor &nbsp;
+						</td>
+						<td>
+							<span *ngFor="let voice of tenor">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Bass &nbsp;
+						</td>
+						<td>
+							<span *ngFor="let voice of bariton">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+                            |
+							<span *ngFor="let voice of bass">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Probe &nbsp;
+						</td>
+						<td>
+							<span *ngFor="let voice of probemitglied">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+						</td>
+					</tr>
+				</table>
+			</ion-card-content>
+			</div>
+			<ion-row no-padding>
+				<ion-col>
+					<button (click)="setAnwesend(termin.id,'ja')"ion-button full outline small>zusagen</button>
+				</ion-col>
+				<ion-col>
+					<button (click)="setAnwesend(termin.id,'unsicher')"ion-button full outline small>unsicher</button>
+				</ion-col>
+				<ion-col>
+					<button (click)="setAnwesend(termin.id,'nein')" ion-button full block outline small>absagen</button>
+				</ion-col>
+
+			</ion-row>
+		  </div>
+			<!--
+			<ion-row no-padding>
+				<ion-col>
+					<button ion-button clear small color="danger" icon-start>
+						<ion-icon name='star'></ion-icon>
+						Favorite
+					</button>
+				</ion-col>
+				<ion-col text-center>
+					<button ion-button clear small color="danger" icon-start>
+						<ion-icon name='musical-notes'></ion-icon>
+						Listen
+					</button>
+				</ion-col>
+				<ion-col text-right>
+					<button ion-button clear small color="danger" icon-start>
+						<ion-icon name='share-alt'></ion-icon>
+						Share
+					</button>
+				</ion-col>
+			</ion-row>
+			-->
+		</ion-card>
+
+
+
+
+
+
+
+	 </ion-list>
+</div>
+</ion-content>
