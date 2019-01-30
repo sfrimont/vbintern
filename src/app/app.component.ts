@@ -46,10 +46,10 @@ export class MyApp {
       { title: 'Termine', component: AndereTerminePage },
         { title: 'Proben', component: ProbenPage },
         { title: 'Rückblick', component: ProbenProtokollPage },
-        { title: 'Noten/Übefiles', component:HomePage},
-      { title: 'Aufgabenverteilung', component: AufgabenPage},
-      { title: 'Bildergalerie', component: BildergaleriePage},
-      { title: 'Adressliste', component: AdresslistePage}
+        //{ title: 'Noten/Übefiles', component:HomePage},
+      //{ title: 'Aufgabenverteilung', component: AufgabenPage},
+      //{ title: 'Bildergalerie', component: BildergaleriePage},
+      //{ title: 'Adressliste', component: AdresslistePage}
     ];
 
   }
@@ -57,12 +57,12 @@ export class MyApp {
   initializeApp() {
       // Initialize Firebase
       var config = {
-          apiKey: "AIzaSyA4ApcV4mLCTeKSZn44FJdQcncBW9WjM_k",
-          authDomain: "bvintern-640b9.firebaseapp.com",
-          databaseURL: "https://bvintern-640b9.firebaseio.com",
-          projectId: "bvintern-640b9",
-          storageBucket: "bvintern-640b9.appspot.com",
-          messagingSenderId: "986736619854"
+          apiKey: "AIzaSyBniZDN6biOh6cimoM8e26ZwkbAxFUzirU",
+          authDomain: "vbintern-aa649.firebaseapp.com",
+          databaseURL: "https://vbintern-aa649.firebaseio.com",
+          projectId: "vbintern-aa649",
+          storageBucket: "vbintern-aa649.appspot.com",
+          messagingSenderId: "720228956949"
       };
       firebase.initializeApp(config);
 

@@ -21,7 +21,7 @@ import { AnwesenheitPage } from '../anwesenheit/anwesenheit';
 })
 export class AndereTerminePage {
 
-    auswahl="keineAuswahl"; // in dieser Variablen wird gespeichert welche Termine angezeigt werden sollen.
+    auswahl="alleTermine"; // in dieser Variablen wird gespeichert welche Termine angezeigt werden sollen.
 
     public user = firebase.auth().currentUser.uid;
     public name: string;

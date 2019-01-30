@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "720228956949",
+    "firebase_url": "https://vbintern-aa649.firebaseio.com",
+    "project_id": "vbintern-aa649",
+    "storage_bucket": "vbintern-aa649.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720228956949:android:af17e4d72bc98575",
+        "android_client_info": {
+          "package_name": "de.voxbona.de"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720228956949-soitpeabgb5n0l6okppo7e8v3p7ickip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCopaQPSjBprPQWQNnuAQRq5dG2rCvilNY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

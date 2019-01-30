@@ -34,6 +34,11 @@
 
 
 	<ion-row no-padding>
+
+		<ion-col>
+			<button  ion-button full outline small *ngIf="auswahl!='alleTermine'" (click)="changeAuswahl('alleTermine')">alle</button>
+			<button  ion-button full small *ngIf="auswahl=='alleTermine'" >alle</button>
+		</ion-col>
 		<ion-col>
 			<button ion-button full outline small *ngIf="auswahl!='keineAuswahl'" (click)="changeAuswahl('keineAuswahl')">neu ({{anzahlNichtsAusgewaehlt()}})</button>
 			<button ion-button full small *ngIf="auswahl=='keineAuswahl'" >neu ({{anzahlNichtsAusgewaehlt()}})</button>
@@ -42,11 +47,6 @@
 		<ion-col>
 			<button ion-button full small outline *ngIf="auswahl!='unsicher'" (click)="changeAuswahl('unsicher')">unsicher ({{anzahlUnsicherAusgewaehlt()}})</button>
 			<button ion-button full small *ngIf="auswahl=='unsicher'" >unsicher ({{anzahlUnsicherAusgewaehlt()}})</button>
-		</ion-col>
-
-		<ion-col>
-			<button  ion-button full outline small *ngIf="auswahl!='alleTermine'" (click)="changeAuswahl('alleTermine')">alle</button>
-			<button  ion-button full small *ngIf="auswahl=='alleTermine'" >alle</button>
 		</ion-col>
 
 

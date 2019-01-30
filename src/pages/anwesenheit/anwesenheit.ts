@@ -119,6 +119,7 @@ export class AnwesenheitPage {
            else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.sopran[voice]] == "unsicher") this.unsicherSopran1++;
            else this.keineAngabeSopran1++;
        }
+        this.aktualisiereSummen();
     }
 
     zaehleSopran2() {
@@ -133,6 +134,7 @@ export class AnwesenheitPage {
             else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.sopran2[voice]] == "unsicher") this.unsicherSopran2++;
             else this.keineAngabeSopran2++;
         }
+        this.aktualisiereSummen();
     }
 
     zaehleAlt1() {
@@ -147,6 +149,7 @@ export class AnwesenheitPage {
             else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.alt[voice]] == "unsicher") this.unsicherAlt1++;
             else this.keineAngabeAlt1++;
         }
+        this.aktualisiereSummen();
     }
 
     zaehleAlt2() {
@@ -162,7 +165,7 @@ export class AnwesenheitPage {
             else this.keineAngabeAlt2++;
         }
 
-
+        this.aktualisiereSummen();
     }
 
     zaehleTenor() {
@@ -177,7 +180,7 @@ export class AnwesenheitPage {
             else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor[voice]] == "unsicher") this.unsicherTenor++;
             else this.keineAngabeTenor++;
         }
-
+        this.aktualisiereSummen();
     }
 
 
@@ -194,7 +197,7 @@ export class AnwesenheitPage {
             else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.bariton[voice]] == "unsicher") this.unsicherBariton++;
             else this.keineAngabeBariton++;
         }
-
+        this.aktualisiereSummen();
     }
 
     zaehleBass() {
