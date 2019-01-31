@@ -26,7 +26,6 @@
         <ion-card-content>
             <ul>
                 <li>Alle Teilnehmer sind automatisch auf "anwesend" gesetzt</li>
-                <li>Bei Absagen ist eine Mail an den Chorleiter mit Begründung erforderlich!</li>
             </ul>
         </ion-card-content>
     </ion-card>
@@ -49,7 +48,7 @@
                     <!-- <p>{{ termin.description }}</p> -->
 
 
-                    <table (click)="stimmen(termin.id,anwesend,namen,sopran,sopran2,alt,alt2,tenor,bariton,bass)">
+                    <table (click)="stimmen(termin.id,anwesend,namen,sopran,sopran2,alt,alt2,tenor1,tenor2,bariton,bass)">
                         <tr>
                             <td>
                                 Sopran &nbsp;
@@ -92,10 +91,17 @@
                         </tr>
                         <tr>
                             <td>
-                                Tenor &nbsp;
+                                Tenor
                             </td>
                             <td>
-							<span *ngFor="let voice of tenor">
+							<span *ngFor="let voice of tenor1">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: green; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+                                |
+                                <span *ngFor="let voice of tenor2">
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: green; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>

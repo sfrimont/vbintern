@@ -1,0 +1,53 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-android-support-gradle-release": {
+      "ANDROID_SUPPORT_VERSION": "27.+",
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-file-opener2": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-file-transfer": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-ionic": {
+      "APP_ID": "87fbdafc",
+      "CHANNEL_NAME": "mobileAppVersionEinsFuenf",
+      "WARN_DEBUG": "true",
+      "UPDATE_API": "https://api.ionicjs.com",
+      "UPDATE_METHOD": "auto",
+      "MAX_STORE": "2",
+      "ROLLBACK_TIMEOUT": "10",
+      "MIN_BACKGROUND_DURATION": "30",
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    }
+  }
+}

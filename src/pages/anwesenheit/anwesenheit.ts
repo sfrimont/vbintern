@@ -22,7 +22,8 @@ export class AnwesenheitPage {
   public sopran2;
   public alt;
   public alt2;
-  public tenor;
+  public tenor1;
+  public tenor2;
   public bariton;
   public bass;
   public probemitglied;
@@ -55,10 +56,15 @@ export class AnwesenheitPage {
     public unsicherAlt2 = 0;
     public keineAngabeAlt2 = 0;
 
-    public zusageTenor = 0;
-    public absageTenor = 0;
-    public unsicherTenor = 0;
-    public keineAngabeTenor = 0;
+    public zusageTenor1 = 0;
+    public absageTenor1 = 0;
+    public unsicherTenor1 = 0;
+    public keineAngabeTenor1 = 0;
+
+    public zusageTenor2 = 0;
+    public absageTenor2 = 0;
+    public unsicherTenor2 = 0;
+    public keineAngabeTenor2 = 0;
 
   public zusageBariton = 0;
   public absageBariton = 0;
@@ -89,7 +95,8 @@ export class AnwesenheitPage {
       this.sopran2 = this.navParams.get('sopran2');
       this.alt = this.navParams.get('alt');
       this.alt2 = this.navParams.get('alt2');
-      this.tenor = this.navParams.get('tenor');
+      this.tenor1 = this.navParams.get('tenor1');
+      this.tenor2 = this.navParams.get('tenor2');
       this.bariton = this.navParams.get('bariton');
       this.bass = this.navParams.get('bass');
       this.probemitglied = this.navParams.get('probemitglied');
@@ -168,17 +175,32 @@ export class AnwesenheitPage {
         this.aktualisiereSummen();
     }
 
-    zaehleTenor() {
-        this.zusageTenor = 0;
-        this.absageTenor = 0;
-        this.unsicherTenor = 0;
-        this.keineAngabeTenor =0;
+    zaehleTenor1() {
+        this.zusageTenor1 = 0;
+        this.absageTenor1 = 0;
+        this.unsicherTenor1 = 0;
+        this.keineAngabeTenor1 =0;
 
-        for (let voice in this.tenor) {
-            if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor[voice]] == "ja") this.zusageTenor++;
-            else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor[voice]] == "nein") this.absageTenor++;
-            else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor[voice]] == "unsicher") this.unsicherTenor++;
-            else this.keineAngabeTenor++;
+        for (let voice in this.tenor1) {
+            if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor1[voice]] == "ja") this.zusageTenor1++;
+            else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor1[voice]] == "nein") this.absageTenor1++;
+            else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor1[voice]] == "unsicher") this.unsicherTenor1++;
+            else this.keineAngabeTenor1++;
+        }
+        this.aktualisiereSummen();
+    }
+
+    zaehleTenor2() {
+        this.zusageTenor2 = 0;
+        this.absageTenor2 = 0;
+        this.unsicherTenor2 = 0;
+        this.keineAngabeTenor2 =0;
+
+        for (let voice in this.tenor2) {
+            if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor2[voice]] == "ja") this.zusageTenor2++;
+            else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor2[voice]] == "nein") this.absageTenor2++;
+            else if (this.anwesend[this.terminID] && this.anwesend[this.terminID][this.tenor2[voice]] == "unsicher") this.unsicherTenor2++;
+            else this.keineAngabeTenor2++;
         }
         this.aktualisiereSummen();
     }
@@ -219,10 +241,10 @@ export class AnwesenheitPage {
 
     aktualisiereSummen() {
 
-    this.zusagen = this.zusageSopran1+this.zusageSopran2+this.zusageAlt1+this.zusageAlt2+this.zusageTenor+this.zusageBariton+this.zusageBass;
-    this.absagen = this.absageSopran1+this.absageSopran2+this.absageAlt1+this.absageAlt2+this.absageTenor+this.absageBariton+this.absageBass;
-    this.unsicher = this.unsicherSopran1+this.unsicherSopran2+this.unsicherAlt1+this.unsicherAlt2+this.unsicherTenor+this.unsicherBariton+this.unsicherBass;
-    this.keineAngabe = this.keineAngabeSopran1+this.keineAngabeSopran2+this.keineAngabeAlt1+this.keineAngabeAlt2+this.keineAngabeTenor+this.keineAngabeBariton+this.keineAngabeBass;
+    this.zusagen = this.zusageSopran1+this.zusageSopran2+this.zusageAlt1+this.zusageAlt2+this.zusageTenor1+this.zusageTenor2+this.zusageBariton+this.zusageBass;
+    this.absagen = this.absageSopran1+this.absageSopran2+this.absageAlt1+this.absageAlt2+this.absageTenor1+this.absageTenor2+this.absageBariton+this.absageBass;
+    this.unsicher = this.unsicherSopran1+this.unsicherSopran2+this.unsicherAlt1+this.unsicherAlt2+this.unsicherTenor2+this.unsicherTenor2+this.unsicherBariton+this.unsicherBass;
+    this.keineAngabe = this.keineAngabeSopran1+this.keineAngabeSopran2+this.keineAngabeAlt1+this.keineAngabeAlt2+this.keineAngabeTenor1+this.keineAngabeTenor2+this.keineAngabeBariton+this.keineAngabeBass;
 
 
     }

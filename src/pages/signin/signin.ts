@@ -28,8 +28,9 @@ export class SigninPage {
             .catch(error => {
                 loading.dismiss();
                 const alert = this.alertCtrl.create({
-                    title: 'Signin failed!',
-                    message: error.message,
+                    title: 'Login nicht möglich',
+                    message: 'Email-Adresse oder Passwort nicht bekannt! Passwort vergessen? Kein Problem! Für ein neues Passwort bitte nur die Email-Adresse eintragen und dann "Passwort einrichten oder zurücksetzen" auswählen.',
+                    //error.message,
                     buttons: ['Ok']
                 });
                 alert.present();
@@ -55,8 +56,8 @@ export class SigninPage {
                 checking.dismiss();
 
                     const alert = this.alertCtrl.create({
-                        title: 'Unbekanntes login',
-                        message: "Die oben eingegebene Email-Adresse ist dem System unbekannt. Vermutlich ist sie noch nicht als Adresse eines Chormitgliedes registriert. Bitte wende Dich an Sven :)<br>Hinweis : Alle im alten internen Bereich bekannten Email-Adressen wurden in das neue System übernommen.",
+                        title: 'Unbekanntes Login',
+                        message: "Die oben eingegebene Email-Adresse ist dem System unbekannt. Oder es gibt einen Tippfehler...",
                         buttons: ['Ok']
                     })
                     alert.present();

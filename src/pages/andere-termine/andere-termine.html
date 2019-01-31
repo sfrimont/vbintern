@@ -72,7 +72,7 @@
 
 		<ion-card *ngFor="let termin of calenderData.items | terminfilter text-wrap" >
           <div *ngIf="terminAnzeigen(termin.id)">
-			<div (click)="stimmen(termin.id, termin.summary, anwesend,namen,sopran,sopran2,alt,alt2,tenor,bariton,bass,probemitglied)">
+			<div (click)="stimmen(termin.id, termin.summary, anwesend,namen,sopran,sopran2,alt,alt2,tenor1,tenor2,bariton,bass,probemitglied)">
 			<ion-card-header>
 				<span *ngIf="termin.start.date">{{ termin.start.date | datum}}</span>
 				<span *ngIf="termin.start.dateTime"> {{ termin.start.dateTime | datum }} - {{ termin.start.dateTime | uhrzeit}}</span>
@@ -130,7 +130,14 @@
 							Tenor &nbsp;
 						</td>
 						<td>
-							<span *ngFor="let voice of tenor">
+							<span *ngFor="let voice of tenor1">
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
+								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
+								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
+							</span>
+							|
+							<span *ngFor="let voice of tenor2">
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
 								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
 								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
@@ -159,19 +166,7 @@
 							</span>
 						</td>
 					</tr>
-					<tr>
-						<td>
-							Probe &nbsp;
-						</td>
-						<td>
-							<span *ngFor="let voice of probemitglied">
-								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='nein'" style="color: red; font-size: 2em">•</span>
-								<span *ngIf="!(anwesend[termin.id] && anwesend[termin.id][voice]) || anwesend[termin.id] && anwesend[termin.id][voice]=='vielleicht'" style="color: lightgrey; font-size:2em">•</span>
-								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='ja'" style="color: green; font-size: 2em">•</span>
-								<span *ngIf="anwesend[termin.id] && anwesend[termin.id][voice]=='unsicher'" style="color:#e0ac00; font-size: 2em">•</span>
-							</span>
-						</td>
-					</tr>
+
 				</table>
 			</ion-card-content>
 			</div>

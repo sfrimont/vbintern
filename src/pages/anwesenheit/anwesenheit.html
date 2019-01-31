@@ -89,13 +89,14 @@
     </span>
         </ion-item>
     </ion-list>
+
     <ion-list>
-    <ion-item-divider>Tenor (<span style="color: green">{{ zusageTenor }}</span> von
-        {{ zusageTenor + absageTenor + unsicherTenor + keineAngabeTenor }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageTenor }}</span>/
-        <span style="color:#e0ac00">{{ unsicherTenor }}</span>/<span style="color: grey;">{{ keineAngabeTenor }}</span>)</span></ion-item-divider>
+    <ion-item-divider>Tenor 1 (<span style="color: green">{{ zusageTenor }}</span> von
+        {{ zusageTenor1 + absageTenor1 + unsicherTenor1 + keineAngabeTenor1 }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageTenor1 }}</span>/
+        <span style="color:#e0ac00">{{ unsicherTenor1 }}</span>/<span style="color: grey;">{{ keineAngabeTenor1 }}</span>)</span></ion-item-divider>
     <ion-item text-wrap>
-    <span *ngFor="let voice of tenor">
-        {{ zaehleTenor() }}
+    <span *ngFor="let voice of tenor1">
+        {{ zaehleTenor1() }}
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
         <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: lightgrey;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
         <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
@@ -104,7 +105,22 @@
     </ion-item>
     </ion-list>
     <ion-list>
-    <ion-item-divider>Bariton (<span style="color: green">{{ zusageBariton }}</span> von
+        <ion-item-divider>Tenor 2 (<span style="color: green">{{ zusageTenor2 }}</span> von
+            {{ zusageTenor2 + absageTenor2 + unsicherTenor2 + keineAngabeTenor2 }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageTenor2 }}</span>/
+        <span style="color:#e0ac00">{{ unsicherTenor2 }}</span>/<span style="color: grey;">{{ keineAngabeTenor2 }}</span>)</span></ion-item-divider>
+        <ion-item text-wrap>
+    <span *ngFor="let voice of tenor2">
+        {{ zaehleTenor2() }}
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: lightgrey;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
+    </span>
+        </ion-item>
+    </ion-list>
+
+    <ion-list>
+    <ion-item-divider>Bass 1 (<span style="color: green">{{ zusageBariton }}</span> von
         {{ zusageBariton + absageBariton + unsicherBariton + keineAngabeBariton }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageBariton }}</span>/
         <span style="color:#e0ac00">{{ unsicherBariton }}</span>/<span style="color: grey;">{{ keineAngabeBariton }}</span>)</span></ion-item-divider>
 
@@ -120,7 +136,7 @@
     </ion-item>
     </ion-list>
     <ion-list>
-    <ion-item-divider>Bass (<span style="color: green">{{ zusageBass }}</span> von
+    <ion-item-divider>Bass 2 (<span style="color: green">{{ zusageBass }}</span> von
         {{ zusageBass + absageBass + unsicherBass + keineAngabeBass }}) <span item-right style="font-size:0.8em">(<span style="color: red">{{ absageBass }}</span>/
         <span style="color:#e0ac00">{{ unsicherBass }}</span>/<span style="color: grey;">{{ keineAngabeBass }}</span>)</span></ion-item-divider>
 
@@ -135,18 +151,6 @@
     </span>
         </ion-item>
     </ion-list>
-    <ion-list>
-    <ion-item-divider>Probemitglieder</ion-item-divider>
 
-
-    <ion-item text-wrap>
-    <span *ngFor="let voice of probemitglied">
-        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='nein'" style="color: red">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
-        <span *ngIf="!(anwesend[terminID] && anwesend[terminID][voice]) || anwesend[terminID] && anwesend[terminID][voice]=='vielleicht'" style="color: lightgrey;">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
-        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='ja'" style="color: green">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
-        <span *ngIf="anwesend[terminID] && anwesend[terminID][voice]=='unsicher'" style="color:#e0ac00">{{namen[voice]}}<span style="color:lightgrey"> | </span></span>
-    </span>
-    </ion-item>
-    </ion-list>
 
 </ion-content>

@@ -28,7 +28,8 @@ export class ProbenPage {
     public  sopran2 = new Array();
     public  alt = new Array();
     public  alt2 = new Array();
-    public  tenor = new Array();
+    public  tenor1 = new Array();
+    public  tenor2 = new Array();
     public  bariton = new Array();
     public  bass = new Array();
 
@@ -106,7 +107,8 @@ export class ProbenPage {
             that.sopran2 = new Array();
             that.alt = new Array();
             that.alt2 = new Array();
-            that.tenor = new Array();
+            that.tenor1 = new Array();
+            that.tenor2 = new Array();
             that.bariton = new Array();
             that.bass = new Array();
 
@@ -131,13 +133,16 @@ export class ProbenPage {
                 if (childSnap.val().Stimmgruppe == "Alt 2") {
                     that.alt2.push(childSnap.key);
                 }
-                if (childSnap.val().Stimmgruppe == "Tenor") {
-                    that.tenor.push(childSnap.key);
+                if (childSnap.val().Stimmgruppe == "Tenor 1") {
+                    that.tenor1.push(childSnap.key);
                 }
-                if (childSnap.val().Stimmgruppe == "Bariton") {
+                if (childSnap.val().Stimmgruppe == "Tenor 2") {
+                    that.tenor2.push(childSnap.key);
+                }
+                if (childSnap.val().Stimmgruppe == "Bass 1") {
                     that.bariton.push(childSnap.key);
                 }
-                if (childSnap.val().Stimmgruppe == "Bass") {
+                if (childSnap.val().Stimmgruppe == "Bass 2") {
                     that.bass.push(childSnap.key);
                 }
 
@@ -147,10 +152,10 @@ export class ProbenPage {
         });
     }
 
-    stimmen(terminID,anwesend, namen, sopran,sopran2,alt,alt2,tenor,bariton,bass) {
+    stimmen(terminID,anwesend, namen, sopran,sopran2,alt,alt2,tenor1,tenor2,bariton,bass) {
         console.log("hallo");
 
-        let modal = this.modalCtrl.create(AnwesenheitProbePage, {id: terminID,anwesend:anwesend, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor:tenor, bariton:bariton, bass:bass});
+        let modal = this.modalCtrl.create(AnwesenheitProbePage, {id: terminID,anwesend:anwesend, namen:namen, sopran: sopran, sopran2: sopran2, alt:alt, alt2:alt2, tenor1:tenor1, tenor2:tenor2, bariton:bariton, bass:bass});
         modal.present({
 
         });

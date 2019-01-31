@@ -28,10 +28,11 @@ export class KalenderProvider {
       let month = heute.getMonth();
       let day = heute.getDate();
       let inZweiJahren = new Date(year + 2, month, day);
+      let inEinemJahr = new Date(year + 1, month, day);
 
 
 
-      this.googleURL= "https://www.googleapis.com/calendar/v3/calendars/janlueth2201@gmail.com/events?key=AIzaSyBUfymwqsh1vimIuCjJhioO42MPH3Nk_FU&orderBy=startTime&singleEvents=true&maxResults=2500&timeMin="+heute.toISOString()+"&timeMax="+inZweiJahren.toISOString();
+      this.googleURL= "https://www.googleapis.com/calendar/v3/calendars/janlueth2201@gmail.com/events?key=AIzaSyBUfymwqsh1vimIuCjJhioO42MPH3Nk_FU&orderBy=startTime&singleEvents=true&maxResults=2500&timeMin="+heute.toISOString()+"&timeMax="+inEinemJahr.toISOString();
       this.http.get<object[]>(this.googleURL).subscribe(data => {
       resolve(data);
       console.log("Daten erfolgreich geladen");
