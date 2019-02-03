@@ -20,6 +20,7 @@ import { AndereTerminePage } from "../pages/andere-termine/andere-termine";
 import {NavController, MenuController} from 'ionic-angular';
 
 import {AuthProvider} from "../providers/auth/auth";
+import {DuringLoginPage} from "../pages/during-login/during-login";
 
 
 @Component({
@@ -28,7 +29,7 @@ import {AuthProvider} from "../providers/auth/auth";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SigninPage;
+  rootPage: any = DuringLoginPage;
 
     isAuthenticated = false;
 

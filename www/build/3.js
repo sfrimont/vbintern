@@ -1,1 +1,40 @@
-webpackJsonp([3],{356:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var a=r(0),n=r(24),o=r(170),c=this&&this.__decorate||function(e,t,r,a){var n,o=arguments.length,c=o<3?t:null===a?a=Object.getOwnPropertyDescriptor(t,r):a;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)c=Reflect.decorate(e,t,r,a);else for(var _=e.length-1;_>=0;_--)(n=e[_])&&(c=(o<3?n(c):o>3?n(t,r,c):n(t,r))||c);return o>3&&c&&Object.defineProperty(t,r,c),c},_=function(){function e(){}return e=c([Object(a.D)({declarations:[],imports:[n.e.forChild(o.a)]})],e)}(),f=r(240),i=r(241),l=r(242),u=r(243),d=r(244),b=r(245),s=r(246),p=r(247),y=r(248),g=r(254),h=r(9),j=r(20),v=r(166),O=r(57);r.d(t,"KalenderPageModuleNgFactory",function(){return P});var P=a._14(_,[],function(e){return a._28([a._29(512,a.l,a._10,[[8,[f.a,i.a,l.a,u.a,d.a,b.a,s.a,p.a,y.a,g.a]],[3,a.l],a.E]),a._29(4608,h.l,h.k,[a.C,[2,h.t]]),a._29(4608,j.q,j.q,[]),a._29(4608,j.d,j.d,[]),a._29(512,h.b,h.b,[]),a._29(512,j.o,j.o,[]),a._29(512,j.e,j.e,[]),a._29(512,j.m,j.m,[]),a._29(512,v.a,v.a,[]),a._29(512,v.b,v.b,[]),a._29(512,_,_,[]),a._29(256,O.a,o.a,[])])})}});
+webpackJsonp([3],{
+
+/***/ 383:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KalenderPageModule", function() { return KalenderPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__kalender__ = __webpack_require__(242);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var KalenderPageModule = (function () {
+    function KalenderPageModule() {
+    }
+    KalenderPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__kalender__["a" /* KalenderPage */]),
+            ]
+        })
+    ], KalenderPageModule);
+    return KalenderPageModule;
+}());
+
+//# sourceMappingURL=kalender.module.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=3.js.map

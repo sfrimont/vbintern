@@ -36,6 +36,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 import { AuthProvider } from '../providers/auth/auth';
 import {SigninPage} from "../pages/signin/signin";
+import { DuringLoginPage} from "../pages/during-login/during-login";
 
 import { FileOpener } from '@ionic-native/file-opener';
 
@@ -60,7 +61,7 @@ export function myCustomAudioProviderFactory() {
       ProbenPage,
     HomePage,
       SigninPage,
-
+      DuringLoginPage,
       AnwesenheitPage,
       AnwesenheitProbePage,
       ProbenProtokollPage
@@ -88,7 +89,7 @@ export function myCustomAudioProviderFactory() {
        ProbenProtokollPage,
     HomePage,
       SigninPage,
-
+      DuringLoginPage,
       AnwesenheitPage,
       AnwesenheitProbePage
   ],
