@@ -7,33 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Login</ion-title>
+    <ion-title>Vox Bona</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <form #f="ngForm" >
-    <ion-list>
-      <ion-item>
-        <ion-label floating>E-Mail-Adresse</ion-label>
-        <ion-input
-                type="email"
-                ngModel
-                name="email"
-                required></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Passwort</ion-label>
-        <ion-input
-                type="password"
-                ngModel
-                name="password"
-                required></ion-input>
-      </ion-item>
-    </ion-list>
-    <button ion-button type="submit" [disabled]="!f.valid" (click)="onSignin(f)">anmelden</button><br>
-    <button ion-button (click)="onResetPassword(f)">Passwort einrichten oder zurücksetzen</button>
-  </form>
+
+    <ion-card>
+        <img src="assets/imgs/BildWillkommenVoxBona.png"/>
+        <ion-card-header>
+            <ion-card-title>Herzlich Willkommen!</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            Diese App vereinfacht Terminabstimmungen für Vox Bona. Die App kann nur von Mitgliedern des Chores verwendet werden.
+            Viel Spaß!
+        </ion-card-content>
+
+    </ion-card>
+
+    <button ion-button full color="facebook" (click)="loginWithFB()"><ion-icon name="logo-facebook"></ion-icon>&nbsp;&nbsp;Login mit Facebook</button><br>
+
+    <button ion-button full color="google" (click)="loginWithGG()"><ion-icon name="logo-google"></ion-icon>&nbsp;&nbsp;Login mit Google</button><br>
+
+
+  <button ion-button full type="submit"  [navPush]="emailLogin">Login mit Email/Passwort</button><br>
+
+
 </ion-content>

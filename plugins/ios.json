@@ -7,6 +7,9 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-android-support-gradle-release": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
     "cordova-plugin-advanced-http": {
       "PACKAGE_NAME": "de.voxbona.app"
     },
@@ -22,29 +25,66 @@
     "cordova-plugin-ionic-keyboard": {
       "PACKAGE_NAME": "de.voxbona.app"
     },
+    "cordova-plugin-qrscanner": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
     "cordova-plugin-splashscreen": {
       "PACKAGE_NAME": "de.voxbona.app"
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "de.voxbona.app"
     },
+    "phonegap-plugin-barcodescanner": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-facebook4": {
+      "APP_ID": "2200709550257920",
+      "APP_NAME": "Vox Bona",
+      "FACEBOOK_HYBRID_APP_EVENTS": "false",
+      "FACEBOOK_ANDROID_SDK_VERSION": "4.38.1",
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-buildinfo": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-universal-links-plugin": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-browsertab": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-customurlscheme": {
+      "URL_SCHEME": "de.voxbona.app",
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-googleplus": {
+      "REVERSED_CLIENT_ID": "de.voxbona.app",
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-statusbar": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
     "cordova-plugin-ionic": {
-      "APP_ID": "87fbdafc",
-      "CHANNEL_NAME": "mobileAppVersionEinsFuenf",
-      "WARN_DEBUG": "true",
+      "APP_ID": "04442f74",
+      "CHANNEL_NAME": "appUpdates",
       "UPDATE_API": "https://api.ionicjs.com",
       "UPDATE_METHOD": "auto",
       "MAX_STORE": "2",
-      "ROLLBACK_TIMEOUT": "10",
       "MIN_BACKGROUND_DURATION": "30",
-      "PACKAGE_NAME": "de.voxbona.app"
-    },
-    "cordova-android-support-gradle-release": {
       "PACKAGE_NAME": "de.voxbona.app"
     }
   },
   "dependent_plugins": {
+    "cordova-plugin-add-swift-support": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
     "cordova-plugin-file": {
+      "PACKAGE_NAME": "de.voxbona.app"
+    },
+    "cordova-plugin-compat": {
       "PACKAGE_NAME": "de.voxbona.app"
     },
     "cordova-plugin-ionic-webview": {

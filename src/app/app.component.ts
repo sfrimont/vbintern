@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import firebase from 'firebase';
 import { SigninPage } from "../pages/signin/signin";
+import { ShowQrCodePage } from "../pages/show-qr-code/show-qr-code";
 
 import { ProbenProtokollPage} from "../pages/proben-protokoll/proben-protokoll";
 
@@ -21,6 +22,8 @@ import {NavController, MenuController} from 'ionic-angular';
 
 import {AuthProvider} from "../providers/auth/auth";
 import {DuringLoginPage} from "../pages/during-login/during-login";
+import {MitgliedHinzufuegenPage} from "../pages/mitglied-hinzufuegen/mitglied-hinzufuegen";
+import {SetUserDataPage} from "../pages/set-user-data/set-user-data";
 
 
 @Component({
@@ -35,6 +38,7 @@ export class MyApp {
 
     name : string;
     stimmgruppe : string;
+    validiert: string;
 
   pages: Array<{title: string, component: any}>;
 
@@ -46,12 +50,21 @@ export class MyApp {
     this.pages = [
       { title: 'Termine', component: AndereTerminePage },
         { title: 'Proben', component: ProbenPage },
-        { title: 'Rückblick', component: ProbenProtokollPage },
+        { title: 'Rückblick', component: ProbenProtokollPage }
+
         //{ title: 'Noten/Übefiles', component:HomePage},
       //{ title: 'Aufgabenverteilung', component: AufgabenPage},
       //{ title: 'Bildergalerie', component: BildergaleriePage},
       //{ title: 'Adressliste', component: AdresslistePage}
     ];
+
+
+
+    if(!document.URL.startsWith('http')) {  // soll nur hinzugefügt werden wenn es nicht im Webbrowser betrachtet wrid
+        this.pages.push({ title: 'Neues Mitglied', component: MitgliedHinzufuegenPage});
+    }
+
+    this.pages.push({title:'Einstellungen', component: SetUserDataPage});
 
   }
 
@@ -69,13 +82,23 @@ export class MyApp {
 
       firebase.auth().onAuthStateChanged(user => {
           if (user) {
-              this.isAuthenticated = true;
-              this.rootPage = AndereTerminePage;
+
+              this.rootPage = DuringLoginPage;
               let that=this;
               let userId = firebase.auth().currentUser.uid;
-              return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+              firebase.database().ref('/users/' + userId).on('value', function(snapshot) {
                   that.name = (snapshot.val() && snapshot.val().Name) || 'Anonymous';
                   that.stimmgruppe = (snapshot.val() && snapshot.val().Stimmgruppe) || 'Anonymous';
+              });
+              firebase.database().ref('/users/' + userId).on('value',function(snapshot) {
+                  that.validiert = (snapshot.val() && snapshot.val().validiert) || 'nein';
+                  if (that.validiert == "ja") {
+                      that.rootPage=AndereTerminePage;
+                      that.isAuthenticated = true;
+                  } else {
+                      that.rootPage=ShowQrCodePage;
+                      that.isAuthenticated = false;
+                  }
               });
 
           } else {

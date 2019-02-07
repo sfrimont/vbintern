@@ -169,40 +169,42 @@ export class AndereTerminePage {
          snap.forEach(function (childSnap) {
 
              // Alle Namen in einer Hashtabelle merken (besser: gleich Objekte für User speichern..)
-             that.namen[childSnap.key]=childSnap.val().Name;
 
-            if (childSnap.val().Stimmgruppe == "Sopran 1") {
-                that.sopran.push(childSnap.key);
+             if (childSnap.val().validiert === "ja") {             // nur validierte Mitglieder werden angezeigt
+                 that.namen[childSnap.key] = childSnap.val().Name;
 
-            }
+                 if (childSnap.val().Stimmgruppe == "Sopran 1") {
+                     that.sopran.push(childSnap.key);
 
-             if (childSnap.val().Stimmgruppe == "Sopran 2") {
-                 that.sopran2.push(childSnap.key);
-             }
+                 }
 
-             if (childSnap.val().Stimmgruppe == "Alt 1") {
-                 that.alt.push(childSnap.key);
-             }
-             if (childSnap.val().Stimmgruppe == "Alt 2") {
-                 that.alt2.push(childSnap.key);
-             }
-             if (childSnap.val().Stimmgruppe == "Tenor 1") {
-                 that.tenor1.push(childSnap.key);
-             }
-             if (childSnap.val().Stimmgruppe == "Tenor 2") {
-                 that.tenor2.push(childSnap.key);
-             }
-             if (childSnap.val().Stimmgruppe == "Bass 1") {
-                 that.bariton.push(childSnap.key);
-             }
-             if (childSnap.val().Stimmgruppe == "Bass 2") {
-                 that.bass.push(childSnap.key);
-             }
+                 if (childSnap.val().Stimmgruppe == "Sopran 2") {
+                     that.sopran2.push(childSnap.key);
+                 }
 
-             if (childSnap.val().Stimmgruppe == "Probemitglied") {
-                 that.probemitglied.push(childSnap.key);
-             }
+                 if (childSnap.val().Stimmgruppe == "Alt 1") {
+                     that.alt.push(childSnap.key);
+                 }
+                 if (childSnap.val().Stimmgruppe == "Alt 2") {
+                     that.alt2.push(childSnap.key);
+                 }
+                 if (childSnap.val().Stimmgruppe == "Tenor 1") {
+                     that.tenor1.push(childSnap.key);
+                 }
+                 if (childSnap.val().Stimmgruppe == "Tenor 2") {
+                     that.tenor2.push(childSnap.key);
+                 }
+                 if (childSnap.val().Stimmgruppe == "Bass 1") {
+                     that.bariton.push(childSnap.key);
+                 }
+                 if (childSnap.val().Stimmgruppe == "Bass 2") {
+                     that.bass.push(childSnap.key);
+                 }
 
+                 if (childSnap.val().Stimmgruppe == "Probemitglied") {
+                     that.probemitglied.push(childSnap.key);
+                 }
+             }
              return false;
          });
 

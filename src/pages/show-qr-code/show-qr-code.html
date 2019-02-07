@@ -1,0 +1,62 @@
+<!--
+  Generated template for the ShowQrCodePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Account erstellen</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm" >
+
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Vorname</ion-label>
+        <ion-input (ionChange)="datenEintragen()"
+                type="text"
+                [(ngModel)]="vorname"
+                name="vorname"
+                required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Stimmlage</ion-label>
+        <ion-select [(ngModel)]="stimmgruppe" name="stimmgruppe" (ionChange)="datenEintragen()">
+          <ion-option value="Sopran 1">Sopran 1</ion-option>
+          <ion-option value="Sopran 2">Sopran 2</ion-option>
+          <ion-option value="Tenor 1">Tenor 1</ion-option>
+          <ion-option value="Tenor 2">Tenor 2</ion-option>
+          <ion-option value="Alt 1">Alt 1</ion-option>
+          <ion-option value="Alt 2">Alt 2</ion-option>
+          <ion-option value="Bass 1">Bass 1</ion-option>
+          <ion-option value="Bass 2">Bass 2</ion-option>
+        </ion-select>
+      </ion-item>
+
+
+    </ion-list>
+
+
+
+    <p *ngIf="vorname!=='' && stimmgruppe!==''">Vielen Dank, Du haben es fast geschafft! <br><br> Bitte zeige den folgenden QR-Code einem bereits angemeldeten Chormitglied:</p>
+
+
+  </form>
+
+  <ion-row>
+    <ion-col text-center>
+      <ngx-qrcode *ngIf="vorname!=='' && stimmgruppe!==''"
+       qrc-element-type="url"
+      [qrc-value] = "value"
+      qrc-version = "3">
+      </ngx-qrcode>
+    </ion-col>
+  </ion-row>
+
+</ion-content>

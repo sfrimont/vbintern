@@ -14,6 +14,9 @@ import { AndereTerminePage } from '../pages/andere-termine/andere-termine';
 import { HomePage } from '../pages/home/home';
 import { ProbenPage } from '../pages/proben/proben';
 import { ProbenProtokollPage } from '../pages/proben-protokoll/proben-protokoll';
+import { EmailLoginPage } from '../pages/email-login/email-login';
+import { NeuenLoginErstellenPage } from '../pages/neuen-login-erstellen/neuen-login-erstellen';
+import { SetUserDataPage} from "../pages/set-user-data/set-user-data";
 
 import { AnwesenheitPage } from '../pages/anwesenheit/anwesenheit';
 import { AnwesenheitProbePage } from "../pages/anwesenheit-probe/anwesenheit-probe";
@@ -25,6 +28,9 @@ import { DropboxProvider } from '../providers/dropbox/dropbox';
 
 import { HttpModule } from '@angular/http';
 import { HTTP } from '@ionic-native/http';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
+//import { QRScanner } from '@ionic-native/qr-scanner';
 
 // import { IonicAudioModule, WebAudioProvider, CordovaMediaProvider, defaultAudioProviderFactory } from 'ionic-audio';
 
@@ -37,8 +43,14 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AuthProvider } from '../providers/auth/auth';
 import {SigninPage} from "../pages/signin/signin";
 import { DuringLoginPage} from "../pages/during-login/during-login";
+import { ShowQrCodePage } from "../pages/show-qr-code/show-qr-code";
+import { MitgliedHinzufuegenPage } from "../pages/mitglied-hinzufuegen/mitglied-hinzufuegen";
 
 import { FileOpener } from '@ionic-native/file-opener';
+
+import { NgxQRCodeModule} from "ngx-qrcode2";
+
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 /**
  * Sample custom factory function to use with ionic-audio
@@ -62,9 +74,14 @@ export function myCustomAudioProviderFactory() {
     HomePage,
       SigninPage,
       DuringLoginPage,
+      ShowQrCodePage,
+      MitgliedHinzufuegenPage,
       AnwesenheitPage,
       AnwesenheitProbePage,
-      ProbenProtokollPage
+      ProbenProtokollPage,
+      EmailLoginPage,
+      NeuenLoginErstellenPage,
+      SetUserDataPage
   ],
   imports: [
     BrowserModule,
@@ -74,6 +91,10 @@ export function myCustomAudioProviderFactory() {
     PipesModule,
  //   IonicAudioModule.forRoot(defaultAudioProviderFactory),
       PdfViewerModule,
+      NgxQRCodeModule,
+
+      //QRScannerModule,
+
 
   ],
   bootstrap: [IonicApp],
@@ -90,13 +111,20 @@ export function myCustomAudioProviderFactory() {
     HomePage,
       SigninPage,
       DuringLoginPage,
+      ShowQrCodePage,
+      MitgliedHinzufuegenPage,
       AnwesenheitPage,
-      AnwesenheitProbePage
+      AnwesenheitProbePage,
+      EmailLoginPage,
+      NeuenLoginErstellenPage,
+      SetUserDataPage
   ],
   providers: [
+      Facebook,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+      BarcodeScanner,
     KalenderProvider,
     DropboxProvider,
       FileTransfer,
@@ -104,7 +132,9 @@ export function myCustomAudioProviderFactory() {
       HTTP,
       //Media,
     AuthProvider,
-      FileOpener
+      FileOpener,
+      //Facebook
+      //QRScanner
   ]
 })
 export class AppModule {}

@@ -4,7 +4,7 @@ import { DuringLoginPage } from './during-login';
 
 @NgModule({
   declarations: [
-    DuringLoginPage,
+
   ],
   imports: [
     IonicPageModule.forChild(DuringLoginPage),

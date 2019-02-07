@@ -63,27 +63,10 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-ionic": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-ionic@^4.1.7"
-    },
-    "is_top_level": true,
-    "variables": {
-      "APP_ID": "87fbdafc",
-      "CHANNEL_NAME": "mobileAppVersionEinsFuenf",
-      "UPDATE_METHOD": "auto",
-      "MAX_STORE": "2",
-      "WARN_DEBUG": "true",
-      "UPDATE_API": "https://api.ionicjs.com",
-      "ROLLBACK_TIMEOUT": "10",
-      "MIN_BACKGROUND_DURATION": "30"
-    }
-  },
   "cordova-plugin-ionic-webview": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-ionic-webview@>=2.0.0"
+      "id": "cordova-plugin-ionic-webview@>=2.1.4"
     },
     "is_top_level": false,
     "variables": {}
@@ -96,6 +79,124 @@
     "is_top_level": true,
     "variables": {
       "ANDROID_SUPPORT_VERSION": "27.+"
+    }
+  },
+  "cordova-plugin-qrscanner": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-qrscanner@^2.6.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-add-swift-support": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-add-swift-support"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "phonegap-plugin-barcodescanner": {
+    "source": {
+      "type": "registry",
+      "id": "phonegap-plugin-barcodescanner@^8.0.1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-facebook4": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-facebook4"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "2200709550257920",
+      "APP_NAME": "Vox Bona"
+    }
+  },
+  "cordova-plugin-buildinfo": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-buildinfo@2.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-universal-links-plugin": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-universal-links-plugin"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-browsertab": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-browsertab"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-compat@^1.0.0"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@3.0.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-customurlscheme": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-customurlscheme"
+    },
+    "is_top_level": true,
+    "variables": {
+      "URL_SCHEME": "de.voxbona.app"
+    }
+  },
+  "cordova-plugin-googleplus": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-googleplus@^7.0.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.720228956949-soitpeabgb5n0l6okppo7e8v3p7ickip"
+    }
+  },
+  "cordova-plugin-statusbar": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-statusbar@2.4.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-ionic": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-ionic@5.3.0"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "04442f74",
+      "CHANNEL_NAME": "appUpdates",
+      "UPDATE_METHOD": "auto",
+      "UPDATE_API": "https://api.ionicjs.com",
+      "MAX_STORE": "2",
+      "MIN_BACKGROUND_DURATION": "30"
     }
   }
 }

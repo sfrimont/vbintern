@@ -2,7 +2,13 @@ import { Component } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { LoadingController, AlertController } from "ionic-angular";
 
-import { AuthProvider } from '../../providers/auth/auth'
+
+//import { Facebook } from "@ionic-native/facebook/ngx";
+import firebase  from 'firebase';
+
+import { AuthProvider } from '../../providers/auth/auth';
+
+import { EmailLoginPage } from '../email-login/email-login';
 
 @Component({
     selector: 'page-signin',
@@ -10,10 +16,49 @@ import { AuthProvider } from '../../providers/auth/auth'
 })
 export class SigninPage {
 
+    emailLogin:any;
+
     constructor(private authService: AuthProvider,
                 private loadingCtrl: LoadingController,
-                private alertCtrl: AlertController) {
+                public alertCtrl: AlertController,
+                 ) {
+        this.emailLogin=EmailLoginPage;
+    }
 
+
+
+    loginWithFB() {
+        let provider = new firebase.auth.FacebookAuthProvider();
+
+        firebase.auth().signInWithRedirect(provider).then(() =>{
+
+           firebase.auth().getRedirectResult().then((result)=>{
+
+
+           }).catch(function(error) {
+               const alert = this.alertCtrl.create({
+                   title: 'Es ist ein Fehler aufgetreten:',
+                   message: error,
+                   buttons: ['Ok']
+               })
+               alert.present();
+
+           });
+        });
+
+        //firebase.auth().signInWithPopup(provider);  // vielleicht später mal..
+    }
+
+    loginWithGG() {
+        let provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithRedirect(provider).then(() =>{
+
+            firebase.auth().getRedirectResult().then((result)=>{
+
+            }).catch(function(error) {
+                alert(JSON.stringify(error));
+            });
+        });
     }
 
     onSignin(form: NgForm) {
